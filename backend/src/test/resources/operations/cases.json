@@ -1,0 +1,51 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "REVIEW",
+      "billableLateHours": "#2",
+      "lateFee": "#40",
+      "depositRefund": "#330"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "lateMinutes": "60"
+    },
+    "expected": {
+      "billableLateHours": "#1",
+      "lateFee": "#20"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "lateMinutes": "0"
+    },
+    "expected": {
+      "lateFee": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "deposit": "100"
+    },
+    "expected": {
+      "extraPayable": "#70",
+      "depositRefund": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "hourRate": "0.01",
+      "lateMinutes": "1"
+    },
+    "expected": {
+      "lateFee": "#0.01"
+    },
+    "error": false
+  }
+]

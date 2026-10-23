@@ -1,0 +1,92 @@
+{
+  "slug": "rental",
+  "title": "租赁归还延时进位与押金结算试算",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "lateMinutes",
+      "label": "核定超时分钟",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "525600"
+    },
+    {
+      "key": "hourRate",
+      "label": "超时每小时费率",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "damageFee",
+      "label": "核定损坏费",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "cleaningFee",
+      "label": "核定清洁费",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "deposit",
+      "label": "已收押金",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    }
+  ],
+  "columns": [
+    {
+      "key": "billableLateHours",
+      "label": "计费超时小时"
+    },
+    {
+      "key": "lateFee",
+      "label": "超时费用"
+    },
+    {
+      "key": "totalCharges",
+      "label": "候选扣费合计"
+    },
+    {
+      "key": "depositRefund",
+      "label": "候选退押金"
+    },
+    {
+      "key": "extraPayable",
+      "label": "候选补收"
+    }
+  ],
+  "description": "将已核定超时分钟向上进位到计费小时，并叠加损坏费用、清洁费与已收押金，区分补收和退押金。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "lateMinutes": "61",
+        "hourRate": "20",
+        "damageFee": "100",
+        "cleaningFee": "30",
+        "deposit": "500"
+      }
+    ]
+  }
+}
